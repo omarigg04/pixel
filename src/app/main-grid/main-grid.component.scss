@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .grid{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    /* background-color: rgb(255, 255, 255); Color por defecto */
+    border: 1px solid black !important;
+    justify-content: center;
+    padding: .2rem;
+
+  }
+  
+  
