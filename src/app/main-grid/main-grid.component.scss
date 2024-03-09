@@ -1,17 +1,42 @@
 .container {
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
+}
 
-  .grid{
-    display: flex;
-    flex-wrap: wrap;
-    width: 50%;
-    /* background-color: rgb(255, 255, 255); Color por defecto */
-    border: 1px solid black !important;
-    justify-content: center;
-    padding: .2rem;
+.grid {
+  display: flex;
+  // flex-wrap: wrap;
+  width: 55%;
+  /* background-color: rgb(255, 255, 255); Color por defecto */
+  border: 1px solid black !important;
+  justify-content: center;
+  padding: .2rem;
+}
 
-  }
-  
-  
+
+/* main-grid.component.css */
+.cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  // display: inline-block;
+}
+
+.active {
+  background-color: blue;
+  /* Estilo para celdas activas */
+}
+
+
+.display{ 
+margin: 0 2rem 0 2rem;
+border: 1px solid black !important;
+width: 180px;
+height: 40px;
+
+  span{
+  margin-left: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+}
