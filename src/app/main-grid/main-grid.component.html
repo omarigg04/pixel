@@ -1,9 +1,12 @@
 <div class="container">
-    <div class="grid" #gridContainer >
-        <app-single-cell 
-        *ngFor="let cell of generarArray()"
-        ></app-single-cell>
+    <div class="grid">
+      <div  *ngFor="let row of gridState; let i = index">
+        <div class="cell" *ngFor="let cell of row; let j = index" [ngClass]="{'active': cell}"></div>
+      </div>
     </div>
-</div>
+    <div class="display">
+        <span>{{numberDisplay}}</span>
+    </div>
+  </div>
 
-
+  
