@@ -19,38 +19,15 @@ export class MainGridComponent implements OnInit {
       }
     }
 
+    for (let i = 0; i < this.gridSize; i++) {
+      this.rotabitFunction(i,500)
+      
+    }
 
-    let currentCell = 0;
-    let direction = 1; // 1 para incrementar, -1 para decrementar
 
-    // this.turnOn(0,0)
 
-    const intervalId = setInterval(() => {
-      this.numberDisplay++;
-      // Encender la celda actual y apagar la celda anterior o siguiente, dependiendo de la dirección
-      this.turnOn(0, currentCell); // Enciende la celda actual en cualquier dirección
-      if (direction == 1) {
-          if (currentCell > 0) {
-              this.turnOff(0, currentCell - 1); // Apaga la celda anterior si no estamos en la primera celda
-          }
-          currentCell++;
-          if (currentCell == this.gridSize) { // Si alcanza el límite superior, cambia la dirección y retrocede
-              direction = 0;
-              currentCell -= 2;
-          }
-      } else if (direction == 0) {
-          if (currentCell < this.gridSize - 1) {
-              this.turnOff(0, currentCell + 1); // Apaga la celda siguiente si no estamos en la última celda
-          }
-          currentCell--;
-          if (currentCell < 0) { // Si alcanza el límite inferior, cambia la dirección y avanza
-              direction = 1;
-              currentCell += 2;
-          }
-      }
-  
-      console.log(currentCell, '  ', direction);
-  }, 1000);
+
+
   }
 
   // Método para encender una celda en la posición (row, col)
@@ -62,4 +39,38 @@ export class MainGridComponent implements OnInit {
   turnOff(row: number, col: number){
     this.gridState[row][col] = 0;
   }
+
+
+  rotabitFunction(column: any, velocity: any): void{
+    let currentCell = 0;
+    let direction = 1; // 1 para incrementar, -1 para decrementar
+    const intervalId = setInterval(() => {
+      this.numberDisplay++;
+      // Encender la celda actual y apagar la celda anterior o siguiente, dependiendo de la dirección
+      this.turnOn(column, currentCell); // Enciende la celda actual en cualquier dirección
+      if (direction == 1) {
+          if (currentCell > 0) {
+              this.turnOff(column, currentCell - 1); // Apaga la celda anterior si no estamos en la primera celda
+          }
+          currentCell++;
+          if (currentCell == this.gridSize) { // Si alcanza el límite superior, cambia la dirección y retrocede
+              direction = 0;
+              currentCell -= 2;
+          }
+      } else if (direction == 0) {
+          if (currentCell < this.gridSize - 1) {
+              this.turnOff(column, currentCell + 1); // Apaga la celda siguiente si no estamos en la última celda
+          }
+          currentCell--;
+          if (currentCell < 0) { // Si alcanza el límite inferior, cambia la dirección y avanza
+              direction = 1;
+              currentCell += 2;
+          }
+      }
+  
+      console.log(currentCell, '  ', direction);
+  }, velocity);
+  }
+
+
 }
